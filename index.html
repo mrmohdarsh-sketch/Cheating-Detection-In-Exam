@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Exam Integrity - Project Presentation</title>
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --accent: #7ef9ff;
+            --danger: #ff4b2b;
+            --bg: #0d1117;
+            --card: #161b22;
+            --text: #c9d1d9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 85%;
+            height: 75vh;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            display: none;
+            border: 1px solid #30363d;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .active { display: block; animation: slideUp 0.6s ease-out; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 { color: var(--primary); font-size: 2.8rem; text-align: center; margin-bottom: 5px; }
+        h2 { color: var(--accent); border-bottom: 2px solid var(--primary); display: inline-block; margin-top: 25px; }
+        h3 { color: var(--primary); margin-top: 15px; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .member {
+            background: rgba(0, 242, 254, 0.05);
+            padding: 15px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        p { line-height: 1.6; font-size: 1.05rem; text-align: justify; }
+        li { margin-bottom: 8px; }
+
+        /* --- MOVING DIAGRAMS --- */
+        .diag-wrapper { display: flex; justify-content: center; margin: 20px 0; }
+        
+        /* Face Scan */
+        .face-scan {
+            width: 120px; height: 120px; border: 2px solid var(--primary);
+            position: relative; background: url('https://cdn-icons-png.flaticon.com/512/1047/1047711.png') center/cover;
+        }
+        .line {
+            width: 100%; height: 2px; background: var(--primary);
+            position: absolute; box-shadow: 0 0 10px var(--primary);
+            animation: scanMove 2.5s infinite alternate ease-in-out;
+        }
+
+        /* Bounding Box Moving */
+        .object-box {
+            border: 2px solid var(--danger);
+            padding: 5px 10px;
+            font-size: 12px;
+            color: var(--danger);
+            animation: moveBox 4s infinite alternate ease-in-out;
+            position: absolute;
+        }
+
+        @keyframes scanMove { from { top: 0; } to { top: 100%; } }
+        @keyframes moveBox { 
+            0% { transform: translate(-50px, 0); } 
+            100% { transform: translate(50px, 20px); } 
+        }
+
+        /* Nav Buttons */
+        .nav { margin-top: 25px; display: flex; gap: 20px; }
+        button {
+            padding: 12px 35px; background: transparent; border: 2px solid var(--primary);
+            color: var(--primary); cursor: pointer; border-radius: 5px; font-weight: bold;
+            text-transform: uppercase; transition: 0.3s;
+        }
+        button:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container active" id="s1">
+        <h1>AI-Based Exam Cheating Detection</h1>
+        <p style="text-align: center;">A Major Project on Automated Remote Proctoring Systems</p>
+        
+        <div class="diag-wrapper">
+            <div class="face-scan"><div class="line"></div></div>
+        </div>
+
+        <h3>Project Team Members:</h3>
+        <div class="team-grid">
+            <div class="member">MOHD ARSH</div>
+            <div class="member">ARYANSH GANGWAR</div>
+            <div class="member">HAMMAD RAJA</div>
+            <div class="member">MOHD ALTAMAS</div>
+        </div>
+    </div>
+
+    <div class="slide-container" id="s2">
+        <h2>Abstract & Need for AI</h2>
+        <p>Traditional proctoring methods are failing in the age of online education. Manual invigilation is limited by human fatigue and inability to monitor large groups simultaneously. Our project aims to bridge this gap using a **Multi-Modal AI System**.</p>
+        <h3>The Core Problem:</h3>
+        <ul>
+            <li><strong>Impersonation:</strong> Someone else taking the exam.</li>
+            <li><strong>External Aids:</strong> Use of smartphones, books, or hidden notes.</li>
+            <li><strong>Peer Communication:</strong> Verbal or non-verbal interaction during exams.</li>
+        </ul>
+        <p>Our solution utilizes <strong>Real-time Computer Vision (CV)</strong> and <strong>Behavioral Analytics</strong> to flag suspicious activities with a high confidence score.</p>
+    </div>
+
+    <div class="slide-container" id="s3">
+        <h2>Module 1: Visual Intelligence</h2>
+        <p>We implement the <strong>YOLOv8 (You Only
+
